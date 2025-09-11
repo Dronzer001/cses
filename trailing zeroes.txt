@@ -1,0 +1,13 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    long long n;
+    cin>>n;
+    long long c5=0;
+    while(n>0){
+        c5+=n/5;
+        n/=5;
+    }
+    cout<<c5;
+    return 0;
+}

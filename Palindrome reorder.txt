@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string s;
+    cin>>s;
+    int n=s.length();
+    unordered_map<char,int>ans;
+    for(int i=0;i<n;i++){
+        ans[s[i]]++;
+    }
+    int odd;
+    if(n%2==0) odd=0;
+    else odd=1;
+    char oc=' ';
+    for(auto it:ans){
+        if(it.second%2==1){odd--; oc=it.first;}
+        if(odd<0){
+            cout<<"NO SOLUTION";
+            return 0;
+        }
+    }
+    string x,y;
+    for(auto it:ans){
+        string part(it.second/2,it.first);
+        x+=part;
+    }
+    y=x;
+    reverse(y.begin(),y.end());
+    cout<<x<<string(ans[oc]%2==1?ans[oc]-(ans[oc]/2)*2:0,oc)<<y;
+    return 0;
+}

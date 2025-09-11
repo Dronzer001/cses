@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long a,b;
+        cin>>a>>b;
+        if((a+b)%3==0 && max(a,b)<=2*min(a,b)) cout<<"YES\n";
+        else cout<<"NO\n";
+    }
+    return 0;
+}
+/*For the piles (a, b) to be emptied:
+
+a + b must be divisible by 3.
+(Because each move removes 3 stones in total.)
+
+Neither pile can be more than twice the size of the other:
+min(a,b)×2≥max(a,b)
+
+If both conditions are satisfied → YES, otherwise → NO.*/

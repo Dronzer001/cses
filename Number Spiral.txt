@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long y,x;
+        cin>>y>>x;
+        long long n=max(y,x);
+        long long count=0;
+        if(n%2==0){
+    //        long long r=n,c=1;
+            if(y==n) count=n*n-(x-1);
+            else count=(n-1)*(n-1)+y;
+        }
+        else{
+       //     long long r=n,c=n;
+            if(x==n)count=n*n-(y-1);
+            else count=(n-1)*(n-1)+x;
+        }
+        cout<<count<<"\n";
+    }
+        return 0;
+}
