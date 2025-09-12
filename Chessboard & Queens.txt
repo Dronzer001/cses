@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int ans=0;
+bool c[8],d1[15],d2[15];
+void solve(int row, vector<string>&board){
+    if(row==8){ans+=1;return;}
+    for(int i=0;i<8;i++){
+        if(board[row][i]=='*') continue;
+        if(c[i]||d1[row+i]||d2[row-i+7]) continue;
+        c[i]=d1[row+i]=d2[row-i+7]=true;
+        solve(row+1,board);
+        c[i]=d1[row+i]=d2[row-i+7]=false;
+    }
+}
+int main(){
+    vector<string>grid(8);
+    for(int i=0;i<8;i++) cin>>grid[i];
+    solve(0,grid);
+    cout<<ans;
+    return 0;
+}

@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+void permute(set<string>&ans, string s,int index){
+    if(index==s.length()){
+        ans.insert(s);
+        return;
+    }
+    for(int i=index;i<s.size();i++){
+        swap(s[i],s[index]);
+        permute(ans,s,index+1);
+        swap(s[i],s[index]);
+    }
+    return;
+}
+int main(){
+    string s,s1;
+    cin>>s;
+    int n=s.length();
+    set<string>ans;
+    permute(ans,s,0);
+    cout<<ans.size()<<"\n";
+    for(string str:ans){
+        cout<<str<<endl;
+    }
+    return 0;
+}

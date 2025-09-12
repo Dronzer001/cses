@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+void toh(int n,int s,int d, int m,vector<pair<long long,long long>>&ans){
+    if(n==1){
+        ans.push_back({s,d});
+        return;
+    }
+    toh(n-1,s,m,d,ans);
+    ans.push_back({s,d});
+    toh(n-1,m,d,s,ans);
+    
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<pair<long long,long long>>ans;
+    toh(n,1,3,2,ans);
+    cout<<ans.size()<<"\n";
+    for(long long i=0;i<ans.size();i++){
+        cout<<ans[i].first<<" "<<ans[i].second<<"\n";
+    }
+    return 0;
+}
