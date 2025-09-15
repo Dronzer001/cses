@@ -1,3 +1,4 @@
+//Apple division
 #include<bits/stdc++.h>
 using namespace std;
 long long solve(vector<int>&arr,int index,long long sum1,long long sum2){
@@ -17,4 +18,5 @@ int main(){
     }
    cout<<solve(arr,0,0,0);
    return 0;
+
 }
