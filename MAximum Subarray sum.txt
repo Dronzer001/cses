@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    vector<long long>nums(n);
+    for(int i=0;i<n;i++) cin>>nums[i];
+    long long sum=nums[0];
+    long long curr=nums[0];
+    for(int i=1;i<n;i++){
+        curr=max(nums[i],curr+nums[i]);
+        sum=max(curr,sum);
+    }
+    cout<<sum;
+    return 0;
+}

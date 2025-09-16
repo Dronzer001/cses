@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+ios::sync_with_stdio(false);
+cin.tie(NULL);
+ 
+    int n,x;
+    cin>>n>>x;
+    vector<pair<long long,int>>arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i].first;
+        arr[i].second=i+1;
+    }
+    sort(arr.begin(),arr.end());
+    int start=0,end=n-1;
+    while(start<end){
+        long long  sum=arr[start].first+arr[end].first;
+        if(sum==x){
+            cout<<arr[start].second<<" "<<arr[end].second;
+            return 0;
+        }
+        else if(sum<x) start+=1;
+        else end-=1;
+    }
+    cout<<"IMPOSSIBLE";
+    
+    return 0;
+}

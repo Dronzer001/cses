@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    vector<pair<int,int>>movie;
+    for(int i=0;i<n;i++){
+        int a,b;
+        cin>>a>>b;
+        movie.push_back({a,b});
+    }
+    sort(movie.begin(),movie.end(),[](const pair<int,int>&a,const pair<int,int>&b){
+        return a.second<b.second;
+    });
+   // for(int i=0;i<n;i++) cout<<movie[i].first<<" "<<movie[i].second<<"\n";
+    int count=1,end=movie[0].second;
+    for(int i=1;i<n;i++){
+        if(end<=movie[i].first){
+            count+=1;
+            end=movie[i].second;
+        }
+    }
+    cout<<count;
+    return 0;
+}
