@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int MOD=1e9+7;
+long long dice(int n, vector<long long>&dp){
+    if(n==0) return 1;
+    if(n<0) return 0;
+    if(dp[n]!=-1) return dp[n];
+    long long ways=0;
+    for(int i=1;i<=6;i++){
+        ways+=dice(n-i,dp)%MOD;
+    }
+    return dp[n]=ways;
+} 
+int main(){
+    int n;
+    cin>>n;  
+    vector<long long>dp(n+1,-1);
+    cout<<dice(n,dp)%MOD;
+    return 0;
+}
