@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+int val(long long row, long long col){
+    if(row==1 && col==1) return 1;
+    if(col%2==1){
+        return col*col-row+1;
+    }
+    else return val(row,col-1)+1;
+}
+int val1(long long row,long long col){
+    if(row==1 && col==1) return 1;
+    if(row%2==0){
+        return row*row-col+1;
+    }
+    else return val(row-1,col)+1;
+}
+int main() {
+    long long t;
+    cin>>t;
+    while(t--){
+        long long col,row;
+        cin>>row>>col;
+        long long k=max(row,col);
+        long long ans;
+        if(k%2==0){
+            if(k==row){
+                ans=k*k - (col-1);
+            }
+            else{
+                ans=(k-1)*(k-1) +row;
+            }
+        }
+        else{
+            if(k==row){
+                ans=(k-1)*(k-1)+col;
+            }
+            else ans=k*k - (row-1);
+        }
+        cout<<ans<<"\n";
+    }
+    return 0;
+}
